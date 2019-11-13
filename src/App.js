@@ -49,12 +49,11 @@ class App extends Component {
     const newList = this.state.lists.find(item => item.id === listid);
     newList.cardIds = this.state.lists.find(item => item.id === listid).cardIds.filter(card => card !== id);
     let existsInAnyList = this.state.lists.filter(list => (list.cardIds.includes(id) === true))
-    let currentCards = this.state.allCards
 
+    let currentCards = this.state.allCards
     if (existsInAnyList.length === 0) {
       delete currentCards[id]
     }
-
     this.setState({ lists: [...this.state.lists], allCards: { ...currentCards } });
   };
 
